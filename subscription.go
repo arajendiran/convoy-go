@@ -33,6 +33,12 @@ type AlertConfiguration struct {
 
 type RetryConfiguration struct {
 	Type       string `json:"type"`
+	Duration   string `json:"duration"`
+	RetryCount int    `json:"retry_count"`
+}
+
+type RetryConfigurationResponse struct {
+	Type       string `json:"type"`
 	Duration   int    `json:"duration"`
 	RetryCount int    `json:"retry_count"`
 }
@@ -56,9 +62,9 @@ type SubscriptionResponse struct {
 	Source *SourceResponse `json:"source_metadata,omitempty"`
 
 	// subscription config
-	AlertConfig  *AlertConfiguration  `json:"alert_config,omitempty"`
-	RetryConfig  *RetryConfiguration  `json:"retry_config,omitempty"`
-	FilterConfig *FilterConfiguration `json:"filter_config,omitempty"`
+	AlertConfig  *AlertConfiguration         `json:"alert_config,omitempty"`
+	RetryConfig  *RetryConfigurationResponse `json:"retry_config,omitempty"`
+	FilterConfig *FilterConfiguration        `json:"filter_config,omitempty"`
 
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
