@@ -33,7 +33,7 @@ type AlertConfiguration struct {
 
 type RetryConfiguration struct {
 	Type       string `json:"type"`
-	Duration   string `json:"duration"`
+	Duration   int    `json:"duration"`
 	RetryCount int    `json:"retry_count"`
 }
 
